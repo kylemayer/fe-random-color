@@ -17,17 +17,19 @@ class ColorPicker extends Component {
         '#FF0000',
       ];
 
-      return rainbow[Math.floor(Math.random() * rainbow.length)];
+      const newColor = rainbow[Math.floor(Math.random() * rainbow.length)];
+
+      if(newColor !== this.state.color) return newColor;
+      else return 'url("https://pbs.twimg.com/profile_images/1403453134668767236/poMoHcUx_200x200.jpg")'
     };
 
     changeColor = () => setInterval(() => {
       this.setState({ color: this.randomColor() });
-    }, 1000);
+    }, 777);
 
     componentDidMount = () => {
       this.changeColor();
     };
-
 
     render() {
       return (
